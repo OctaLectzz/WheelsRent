@@ -10,6 +10,10 @@
 
             <div class="card">
                 <div class="card-body">
+                    <button class="btn btn-dark mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Tambah Supir
+                    </button>
+
                     <div class="table-responsive">
                         <table class="table">
                             <thead class="table table-dark table-hover">
@@ -31,16 +35,19 @@
     </div>
 </div>
 
-@include('includes.modal-delete')
+@include('dashboard.supir.create')
+@foreach($supirs as $supir)
+    @include('dashboard.supir.edit')
+@endforeach
 
 @endsection
 
 
 @push('scripts')
     <script>
-        let userDatatable;
+        let datatable;
             $(document).ready(function () {
-                userDatatable = $('table').DataTable({
+                datatable = $('table').DataTable({
                     dom: "<'row'<'col-sm-12 col-md-6'l><'col-sm-12 col-md-6'f>>" +
                         "<'row'<'col-sm-12'<'table-responsive'tr>>>" +
                         "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",

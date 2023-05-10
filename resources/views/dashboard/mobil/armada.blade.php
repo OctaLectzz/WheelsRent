@@ -20,9 +20,7 @@
                                 <th>No</th>
                                 <th>Type Mobil</th>
                                 <th>Plat Nomor</th>
-                                <th>Bensin</th>
-                                <th>Jumlah</th>
-                                <th width="10%" class="text-center">Aksi</th>
+                                <th>Status</th>
                             </tr>
                         </thead>
                     </table>
@@ -34,9 +32,6 @@
 </div>
 
 @include('dashboard.mobil.create')
-@foreach($mobils as $mobil)
-    @include('dashboard.mobil.edit')
-@endforeach
 
 @endsection
 
@@ -57,9 +52,7 @@
                         { data: 'DT_RowIndex', sortable: false, searchable: false },
                         { data: 'type_mobil' },
                         { data: 'plat_nomor' },
-                        { data: 'bensin' },
-                        { data: 'jumlah' },
-                        { data: 'action', sortable: false },
+                        { data: 'status' },
                     ],
                 });
             });

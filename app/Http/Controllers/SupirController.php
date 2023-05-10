@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Supir;
 use App\Http\Requests\StoreSupirRequest;
 use App\Http\Requests\UpdateSupirRequest;
+use Illuminate\Http\Request;
 
 class SupirController extends Controller
 {
@@ -18,7 +19,7 @@ class SupirController extends Controller
                     <div class="d-flex">
                         <form onsubmit="destroy(event)" action="' . route('supir.destroy', $supir->id) . '" method="POST">
                             <input type="hidden" name="_token" value="'. @csrf_token() .'" enctype="multipart/form-data">
-                            <a href="' . route('supir.edit', $supir->id) . '" class="btn btn-sm btn-warning rounded mb-1"><i class="fa fa-edit"></i></a>
+                            <a href="#" class="btn btn-sm btn-warning rounded mb-1" data-bs-toggle="modal" data-bs-target="#editSupirModal'. $supir->id. '"><i class="fa fa-edit"></i></a>
                             <input type="hidden" name="_method" value="DELETE">
                                 <button class="btn btn-sm btn-danger mr-2 mb-1">
                                     <i class="fa fa-trash"></i>
@@ -41,23 +42,16 @@ class SupirController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Supir $supir)
     {
-        return view('dashboard.supir.index');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        $supirs = Supir::all();
+        return view('dashboard.supir.index', compact('supirs'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSupirRequest $request)
+    public function store(Request $request)
     {
         // Validate Request //
         $data = $request->validate(
@@ -82,26 +76,16 @@ class SupirController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Supir $supir)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSupirRequest $request, Supir $supir)
+    public function update(Request $request, Supir $supir)
     {
         // Validate Request //
         $data = $request->validate(
             [
-                'type_Supir' => 'required|string',
-                'plat_nomor' => 'required|string',
-                'bensin' => 'required|string',
-                'jumlah' => 'required',
-                'status' => 'required'
+                'nama' => 'required|string',
+                'alamat' => 'string',
+                'jenis_kelamin' => 'string',
             ]
         );
 

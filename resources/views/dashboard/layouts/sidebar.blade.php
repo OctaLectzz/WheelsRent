@@ -40,13 +40,28 @@
                 </li>
 
                 {{-- Mobil --}}
-                <li class="nav-item">
-                    <a href="{{ route('mobil.index') }}" class="nav-link {{ Request::is('dashboard/mobil*') ? 'active' : '' }}">
+                <li class="nav-item has-treeview {{ Request::is('dashboard/mobil*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ Request::is('dashboard/mobil*') ? 'active' : '' }}">
                         <i class="nav-icon fa fa-car"></i>
                         <p>
                             Mobil
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('mobil.index') }}" class="nav-link {{ Request::is('dashboard/mobil') ? 'active' : '' }}">
+                                <i class="nav-icon fa fa-list ms-3"></i>
+                                <p>Semua Mobil</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('mobil.armada') }}" class="nav-link {{ Request::is('dashboard/mobil/armada') ? 'active' : '' }}">
+                                <i class="nav-icon fa fa-car ms-3"></i>
+                                <p>Armada Mobil</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
                 {{-- Supir --}}

@@ -42,7 +42,7 @@ Route::get('/profile', function () {
 // -----Dashboard----- //
 
 Auth::routes();
-Route::prefix('dashboard')->middleware(['auth', 'verified', 'Admin'])->group(function() {
+Route::prefix('dashboard')->middleware(['auth', 'Admin'])->group(function() {
 
     // Profile //
     Route::prefix('profile')->controller(ProfileController::class)->group(function() {
@@ -56,6 +56,7 @@ Route::prefix('dashboard')->middleware(['auth', 'verified', 'Admin'])->group(fun
     // Master Mobil //
     Route::prefix('mobil')->controller(MobilController::class)->group(function() {
         Route::get('/', 'index')->name('mobil.index');
+        Route::get('/armada', 'armada')->name('mobil.armada');
         Route::get('/mobil',  'list')->name('mobil.list');
         Route::post('/', 'store')->name('mobil.create');
         Route::put('/{mobil}', 'update')->name('mobil.edit');

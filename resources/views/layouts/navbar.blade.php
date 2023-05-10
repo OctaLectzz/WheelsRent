@@ -13,15 +13,15 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
         
             {{-- Center of Navbar --}}
-            <ul class="navbar-nav mx-auto">
+            <ul class="navbar-nav ms-4 mx-auto">
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('/*', 'posts*') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
+                    <a class="nav-link {{ Request::is('/*') ? 'active bg-light bg-opacity-75 text-danger rounded-3 fw-bold' : '' }}" aria-current="page" href="/">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('profile*') ? 'active' : '' }}" href="/profile">Profile</a>
+                    <a class="nav-link {{ Request::is('profile*') ? 'active bg-light bg-opacity-75 text-danger rounded-3 fw-bold' : '' }}" href="/profile">PROFILE</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Contact</a>
+                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">CONTACT</a>
                 </li>
             </ul>
 

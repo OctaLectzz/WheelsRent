@@ -1,84 +1,84 @@
-@extends('dashboard.layouts.app')
+<form action="{{ route('supir.create') }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
 
-@section('content')
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Create Master Supir</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                
+                <div class="modal-body">
+    
+                    {{-- Nama --}}
+                    <div class="form-group">
+                        <label for="nama">{{ __('Nama :') }}</label>
+                        <input
+                            id="nama"
+                            type="text"
+                            class="form-control @error('nama') is-invalid @enderror"
+                            name="nama"
+                            value="{{ old('nama') }}"
+                            autocomplete="off"
+                            autofocus
+                            required
+                        >
+                        @error('nama')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col">
+                    {{-- Alamat --}}
+                    <div class="form-group">
+                        <label for="alamat">{{ __('Alamat') }}</label>
+                        <textarea 
+                            class="form-control @error('alamat') is-invalid @enderror"
+                            name="alamat"
+                            id="floatingTextarea2 alamat" 
+                            value="{{ old('alamat') }}"
+                            placeholder="Leave a alamat here" 
+                            style="height: 100px"
+                            autocomplete="off"
+                        ></textarea>
+                        @error('alamat')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
 
-
-                <div class="card">
-                    <div class="card-header">{{ __('Create Category') }}</div>
-                    <div class="card-body">
-
-                        <form action="{{ route('category.input') }}" method="POST" enctype="multipart/form-data">
-                            @method('put')
-                            @csrf
-                            
-                            {{-- Name --}}
-                            <div class="row mb-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-                                <div class="col-md-6">
-                                    <input
-                                        id="name"
-                                        type="text"
-                                        class="form-control @error('name') is-invalid @enderror"
-                                        name="name"
-                                        value="{{ old('name') }}"
-                                        autocomplete="off"
-                                        autofocus
-                                    >
-                                    @error('name')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            {{-- Descrption --}}
-                            <div class="row mb-3">
-                                <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>
-                                <div class="col-md-6">
-                                    <textarea 
-                                        class="form-control @error('description') is-invalid @enderror"
-                                        name="description"
-                                        id="floatingTextarea2 description" 
-                                        value="{{ old('description') }}"
-                                        placeholder="Leave a Description here" 
-                                        style="height: 100px"
-                                        autocomplete="off"
-                                    ></textarea>
-                                    @error('description')
-                                        <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            {{-- Save --}}
-                            <div class="row mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-dark">
-                                        {{ __('Create') }}
-                                    </button>
-                                </div>
-                            </div>
-
-                        </form>
-
+                    {{-- Jenis Kelamin --}}
+                    <div class="form-group">
+                        <label for="jenis_kelamin">{{ __('Jenis Kelamin') }}</label>
+                        <select
+                            class="form-control @error('jenis_kelamin') is-invalid @enderror"
+                            aria-label="Default select example"
+                            name="jenis_kelamin"
+                        >
+                            <option
+                                {{ auth()->user()->jenis_kelamin === "Laki-Laki" ? 'selected' : '' }}
+                                value="Laki-Laki">Laki-Laki</option>
+                            <option
+                                {{ auth()->user()->jenis_kelamin === "Perempuan" ? 'selected' : '' }}
+                                value="Perempuan">Perempuan</option>
+                        </select>
+                        @error('jenis_kelamin')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
                     </div>
                 </div>
 
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-dark">Create</button>
+                </div>
 
             </div>
         </div>
     </div>
-
-
-
-
-    <script src="{{ asset('js/submit.js') }}"></script>
-
-@endsection
+</form>

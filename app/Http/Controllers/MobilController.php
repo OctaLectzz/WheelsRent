@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Mobil;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreMobilRequest;
 use App\Http\Requests\UpdateMobilRequest;
 
@@ -18,7 +19,7 @@ class MobilController extends Controller
                     <div class="d-flex">
                         <form onsubmit="destroy(event)" action="' . route('mobil.destroy', $mobil->id) . '" method="POST">
                             <input type="hidden" name="_token" value="'. @csrf_token() .'" enctype="multipart/form-data">
-                            <a href="' . route('mobil.edit', $mobil->id) . '" class="btn btn-sm btn-warning rounded mb-1"><i class="fa fa-edit"></i></a>
+                            <a href="#" class="btn btn-sm btn-warning rounded mb-1" data-bs-toggle="modal" data-bs-target="#editMobilModal'. $mobil->id. '"><i class="fa fa-edit"></i></a>
                             <input type="hidden" name="_method" value="DELETE">
                                 <button class="btn btn-sm btn-danger mr-2 mb-1">
                                     <i class="fa fa-trash"></i>
@@ -41,9 +42,15 @@ class MobilController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Mobil $mobil)
     {
-        return view('dashboard.mobil.index');
+        $mobils = Mobil::all();
+        return view('dashboard.mobil.index', compact('mobils'));
+    }
+
+    public function armada()
+    {
+        return view('dashboard.mobil.armada');
     }
 
     /**
@@ -57,7 +64,7 @@ class MobilController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreMobilRequest $request)
+    public function store(Request $request)
     {
         // Validate Request //
         $data = $request->validate(
@@ -93,7 +100,7 @@ class MobilController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateMobilRequest $request, Mobil $mobil)
+    public function update(Request $request, Mobil $mobil)
     {
         // Validate Request //
         $data = $request->validate(

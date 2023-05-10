@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mobil;
+use App\Models\Supir;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard.home');
+        $mobil = Mobil::all();
+        $supir = Supir::all();
+        return view('dashboard.home', compact(['mobil', 'supir']));
     }
 }
