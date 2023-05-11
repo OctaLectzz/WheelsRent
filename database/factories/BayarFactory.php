@@ -5,9 +5,9 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Mobil>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Bayar>
  */
-class MobilFactory extends Factory
+class BayarFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -17,10 +17,7 @@ class MobilFactory extends Factory
     public function definition(): array
     {
         return [
-            'type_mobil' => fake()->word(),
-            'plat_nomor' => mt_rand(1000, 3000),
-            'bensin' => 'pertamax',
-            'jumlah' => mt_rand(1, 10),
+            //
         ];
     }
 }

@@ -21,13 +21,17 @@ class DatabaseSeeder extends Seeder
         User::factory()->create([
             'name' => 'OctaLectzz',
             'email' => 'admin@test.com',
+            'password' => bcrypt('password'),
             'role' => 'Admin'
         ]);
 
         // Mobil
-        Mobil::factory(20)->create();
+        $this->call(MobilSeeder::class);
 
         // Supir
-        Supir::factory(20)->create();
+        $this->call(SupirSeeder::class);
+
+        // Armada
+        $this->call(ArmadaSeeder::class);
     }
 }

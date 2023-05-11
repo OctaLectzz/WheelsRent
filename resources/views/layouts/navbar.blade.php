@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-lg">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
     <div class="container">
         
         {{-- Left of Navbar --}}
@@ -18,7 +18,10 @@
                     <a class="nav-link {{ Request::is('/*') ? 'active bg-light bg-opacity-75 text-danger rounded-3 fw-bold' : '' }}" aria-current="page" href="/">HOME</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('profile*') ? 'active bg-light bg-opacity-75 text-danger rounded-3 fw-bold' : '' }}" href="/profile">PROFILE</a>
+                    <a class="nav-link {{ Request::is('mobil*') ? 'active bg-light bg-opacity-75 text-danger rounded-3 fw-bold' : '' }}" href="/mobil">MOBIL</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {{ Request::is('transaksi*') ? 'active bg-light bg-opacity-75 text-danger rounded-3 fw-bold' : '' }}" href="/transaksi">TRANSAKSI</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">CONTACT</a>
@@ -43,14 +46,18 @@
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{-- <img src="{{ asset('storage/images/' . auth()->user()->images) }}" alt="{{ auth()->user()->images }}" class="rounded rounded-circle me-1 shadow" width="30" style="border: 1px white solid"> --}}
+                            @if (auth()->user()->images)
+                                <img src="{{ asset('storage/images/' . auth()->user()->images) }}" alt="{{ auth()->user()->images }}" class="rounded rounded-circle me-1 shadow" width="30" style="border: 1px white solid">
+                            @else
+                                <img src="{{ asset('img/user-profile-default.jpg') }}" alt="{{ auth()->user()->images }}" class="rounded rounded-circle me-1 shadow" width="30" style="border: 1px white solid">
+                            @endif
                             {{ Auth::user()->name }}
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-dark animate-menu slideIn-menu" aria-labelledby="navbarDropdown">
             
                             {{-- Profile --}}
-                            <a href="{{ route('welcome') }}" class="d-block text-dark text-decoration-none fw-bold fs-6">
+                            <a href="{{ route('profile') }}" class="d-block text-dark text-decoration-none fw-bold fs-6">
                                 <div class="card bg-dark m-2 pt-2">
                                     <div class="justify-content-center d-flex mb-2">
                                         <div class="image">
@@ -75,16 +82,9 @@
                             <hr class="dropdown-divider">
             
                             {{-- Edit Profile --}}
-                            {{-- <a class="dropdown-item" href="{{ route('profile') }}">
+                            <a class="dropdown-item" href="{{ route('profile') }}">
                                 {{ __('Edit Profile') }}
-                            </a> --}}
-
-                            {{-- <hr class="dropdown-divider"> --}}
-
-                            {{-- Bookmark --}}
-                            {{-- <a class="dropdown-item" href="{{ route('bookmark') }}">
-                                {{ __('Bookmark') }}
-                            </a> --}}
+                            </a>
 
                             <hr class="dropdown-divider">
                             

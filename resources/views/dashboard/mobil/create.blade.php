@@ -10,14 +10,16 @@
                 </div>
                 
                 <div class="modal-body">
+                    {{-- Type Mobil --}}
                     <div class="form-group">
-                        <label for="type_mobil">Type Mobil:</label>
+                        <label for="type_mobil">Mobil:</label>
                         <input type="text" class="form-control @error('type_mobil') is-invalid @enderror" id="type_mobil" name="type_mobil" value="{{ old('type_mobil') }}" required>
                         @error('type_mobil')
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
                 
+                    {{-- Plat Nomor --}}
                     <div class="form-group">
                         <label for="plat_nomor">Plat Nomor:</label>
                         <input type="text" class="form-control @error('plat_nomor') is-invalid @enderror" id="plat_nomor" name="plat_nomor" value="{{ old('plat_nomor') }}" required>
@@ -26,6 +28,7 @@
                         @enderror
                     </div>
                 
+                    {{-- Bensin --}}
                     <div class="form-group">
                         <label for="bensin">Bensin:</label>
                         <input type="text" class="form-control @error('bensin') is-invalid @enderror" id="bensin" name="bensin" value="{{ old('bensin') }}" required>
@@ -34,6 +37,7 @@
                         @enderror
                     </div>
                 
+                    {{-- Jumlah --}}
                     <div class="form-group">
                         <label for="jumlah">Jumlah:</label>
                         <input type="number" class="form-control @error('jumlah') is-invalid @enderror" id="jumlah" name="jumlah" value="{{ old('jumlah') }}" required>
@@ -41,18 +45,6 @@
                             <div class="invalid-feedback">{{ $message }}</div>
                         @enderror
                     </div>
-                
-                    {{-- <div class="form-group">
-                        <label for="status">Status:</label>
-                        <select class="form-control @error('status') is-invalid @enderror" id="status" name="status" required>
-                            <option value="">-- Pilih Status --</option>
-                            <option value="0" {{ old('status') == '0' ? 'selected' : '' }}>Tersedia</option>
-                            <option value="1" {{ old('status') == '1' ? 'selected' : '' }}>Disewa</option>
-                        </select>
-                        @error('status')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div> --}}
                 </div>
 
                 <div class="modal-footer">

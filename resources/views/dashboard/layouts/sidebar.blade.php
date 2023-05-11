@@ -31,7 +31,7 @@
 
                {{-- Home --}}
                <li class="nav-item">
-                    <a href="{{ route('home') }}" class="nav-link {{ Request::is('dashboard', 'home') ? 'active' : '' }}">
+                    <a href="{{ route('home') }}" class="nav-link {{ Request::is('dashboard') ? 'active' : '' }}">
                         <i class="nav-icon fa fa-home"></i>
                         <p>
                             Home
@@ -39,29 +39,63 @@
                     </a>
                 </li>
 
-                {{-- Mobil --}}
-                <li class="nav-item has-treeview {{ Request::is('dashboard/mobil*') ? 'menu-open' : '' }}">
-                    <a href="#" class="nav-link {{ Request::is('dashboard/mobil*') ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-car"></i>
+                {{-- Transaksi --}}
+                <li class="nav-item has-treeview {{ Request::is('dashboard/transaksi*') ? 'menu-open' : '' }}">
+                    <a href="#" class="nav-link {{ Request::is('dashboard/transaksi*') ? 'active' : '' }}">
+                        <i class="nav-icon fa fa-shopping-cart"></i>
                         <p>
-                            Mobil
+                            Transaksi
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('mobil.index') }}" class="nav-link {{ Request::is('dashboard/mobil') ? 'active' : '' }}">
-                                <i class="nav-icon fa fa-list ms-3"></i>
-                                <p>Semua Mobil</p>
+                            <a href="{{ route('transaksi.semua') }}" class="nav-link {{ Request::is('dashboard/transaksi/semuaTransaksi') ? 'active' : '' }}">
+                                <i class="fa fa-chart-bar nav-icon ms-3"></i>
+                                <p>Semua Transaksi</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('mobil.armada') }}" class="nav-link {{ Request::is('dashboard/mobil/armada') ? 'active' : '' }}">
-                                <i class="nav-icon fa fa-car ms-3"></i>
-                                <p>Armada Mobil</p>
+                            <a href="{{ route('transaksi.belumBayar') }}" class="nav-link {{ Request::is('dashboard/transaksi/belumBayar') ? 'active' : '' }}">
+                                <i class="fa fa-not-equal nav-icon ms-3"></i>
+                                <p>Belum Bayar</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('transaksi.proses') }}" class="nav-link {{ Request::is('dashboard/transaksi/proses') ? 'active' : '' }}">
+                                <i class="fa fa-spinner nav-icon ms-3"></i>
+                                <p>Proses</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('transaksi.selesai') }}" class="nav-link {{ Request::is('dashboard/transaksi/selesai') ? 'active' : '' }}">
+                                <i class="fa fa-check-square nav-icon  ms-3"></i>
+                                <p>Selesai</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('transaksi.batal') }}" class="nav-link {{ Request::is('dashboard/transaksi/batal') ? 'active' : '' }}">
+                                <i class="fa fa-ban nav-icon ms-3"></i>
+                                <p>Dibatalkan</p>
                             </a>
                         </li>
                     </ul>
+                </li>
+
+                {{-- Mobil --}}
+                <li class="nav-item">
+                    <a href="{{ route('mobil.index') }}" class="nav-link {{ Request::is('dashboard/mobil*') ? 'active' : '' }}">
+                        <i class="nav-icon fa fa-car"></i>
+                        <p>Mobil</p>
+                    </a>
+                </li>
+
+                {{-- Armada --}}
+                <li class="nav-item">
+                    <a href="{{ route('armada.index') }}" class="nav-link {{ Request::is('dashboard/armada*') ? 'active' : '' }}">
+                        <i class="nav-icon fa fa-train"></i>
+                        <p>Armada</p>
+                    </a>
                 </li>
 
                 {{-- Supir --}}

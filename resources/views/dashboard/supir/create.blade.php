@@ -10,7 +10,6 @@
                 </div>
                 
                 <div class="modal-body">
-    
                     {{-- Nama --}}
                     <div class="form-group">
                         <label for="nama">{{ __('Nama :') }}</label>

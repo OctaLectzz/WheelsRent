@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Mobil;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreMobilRequest;
-use App\Http\Requests\UpdateMobilRequest;
 
 class MobilController extends Controller
 {
@@ -29,11 +27,6 @@ class MobilController extends Controller
                     </div>
                 ';
             })
-            ->editColumn('status', function ($mobil) {
-                return $mobil->status == 0
-                ? '<div class="text-center"><p class="p-2 px-3 fs-6 badge badge-success">Tersedia</p></div>' 
-                : '<div class="text-center"><p class="p-2 px-3 badge badge-danger">Disewa</p></div>' ;
-            })
             ->addIndexColumn()
             ->escapeColumns(['action'])
             ->toJson();
@@ -46,19 +39,6 @@ class MobilController extends Controller
     {
         $mobils = Mobil::all();
         return view('dashboard.mobil.index', compact('mobils'));
-    }
-
-    public function armada()
-    {
-        return view('dashboard.mobil.armada');
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
     }
 
     /**
@@ -85,14 +65,6 @@ class MobilController extends Controller
      * Display the specified resource.
      */
     public function show(Mobil $mobil)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Mobil $mobil)
     {
         //
     }

@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mobils', function (Blueprint $table) {
+        Schema::create('bayars', function (Blueprint $table) {
             $table->id();
-            $table->string('type_mobil');
-            $table->string('plat_nomor');
-            $table->string('bensin');
-            $table->integer('jumlah');
+            $table->unsignedBigInteger('transaksi_id');
+            $table->foreign('transaksi_id')->references('id')->on('transaksis');
+            $table->string('bukti_transfer');
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('mobils');
+        Schema::dropIfExists('bayars');
     }
 };

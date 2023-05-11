@@ -1,6 +1,5 @@
 @extends('dashboard.layouts.app')
 
-
 @section('content')
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -10,17 +9,17 @@
 
             <div class="card">
                 <div class="card-body">
-                    <a href="#" class="btn btn-dark mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                        Tambah Mobil
-                    </a>
-
                     <table class="table">
                         <thead class="table table-dark table-hover">
                             <tr>
                                 <th>No</th>
-                                <th>Type Mobil</th>
-                                <th>Plat Nomor</th>
-                                <th>Status</th>
+                                <th>Mobil</th>
+                                <th>Nama</th>
+                                <th>Lama Sewa</th>
+                                <th>Harga</th>
+                                <th>Tanggal Sewa</th>
+                                <th class="text-center">Status</th>
+                                <th width="10%" class="text-center">Aksi</th>
                             </tr>
                         </thead>
                     </table>
@@ -30,8 +29,6 @@
         </div>
     </div>
 </div>
-
-@include('dashboard.mobil.create')
 
 @endsection
 
@@ -46,13 +43,17 @@
                         "<'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7'p>>",
                     processing: true,
                     serverSide: true,
-                    ajax: "{{ route('mobil.list') }}",
+                    ajax: "{{ route('transaksi.proseslist') }}",
                     order: [],
                     columns: [
                         { data: 'DT_RowIndex', sortable: false, searchable: false },
-                        { data: 'type_mobil' },
-                        { data: 'plat_nomor' },
+                        { data: 'armada' },
+                        { data: 'nama' },
+                        { data: 'waktu' },
+                        { data: 'harga' },
+                        { data: 'tanggal' },
                         { data: 'status' },
+                        { data: 'action', sortable: false },
                     ],
                 });
             });

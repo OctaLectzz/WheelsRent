@@ -13,7 +13,8 @@ class Mobil extends Model
         'id'
     ];
 
-    protected $attributes = [
-        'status' => 0
-    ];
+    public function armada()
+    {
+        return $this->belongsTo(Armada::class);
+    }
 }

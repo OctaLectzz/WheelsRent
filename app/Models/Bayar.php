@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Supir extends Model
+class Bayar extends Model
 {
     use HasFactory;
 
@@ -13,12 +13,8 @@ class Supir extends Model
         'id'
     ];
 
-    protected $attributes = [
-        'status' => 'Tersedia'
-    ];
-
     public function transaksi()
     {
-        return $this->belongsTo(Transaksi::class);
+        return $this->belongsTo(Transaksi::class, 'transaksi_id');
     }
 }

@@ -1,0 +1,105 @@
+#jumbotron {
+    color: white;
+    background: url(https://wallpapers.com/images/featured/m10crf0yq69zqm8s.jpg) no-repeat center center fixed;
+    padding: 100px;
+    background-size: cover;
+    margin-bottom: 150px;
+    margin-top: -30px;
+}
+
+#daftarMobil {
+    margin-bottom: 150px;
+}
+
+#about {
+    color: white;
+    background: url(https://wallpapers.com/images/featured/m10crf0yq69zqm8s.jpg) no-repeat center center fixed;
+    padding: 100px;
+    background-size: cover;
+    margin-bottom: 150px;
+    position: relative; /* Tambahkan posisi relatif pada elemen */
+    z-index: -3;
+}
+.text {
+    z-index: 2;
+}
+
+#about::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Ubah opasitas latar belakang gelap di sini */
+    z-index: -1; /* Mengatur z-index agar pseudo-elemen berada di bawah teks */
+}
+
+footer {
+    margin-bottom: -30px;
+}
+.card-hover {
+    transition: all 0.4s ease;
+}
+.card-hover:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+.fab {
+    transition: all 0.3s ease;
+}
+.fab:hover {
+    transform: scale(1.8);
+}
+
+
+/* Transaksi */
+.transaksi {
+	background: url(https://e0.pxfuel.com/wallpapers/889/478/desktop-wallpaper-car-sports-car-neon-backlight-street-u-16-9-background-car-sports-car-neon-aesthetic-car.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding: 120px;
+    padding-bottom: 300px;
+    margin-top: -30px;
+    margin-bottom: 0px;
+}
+
+
+
+
+@media only screen and (max-width: 600px) {
+
+    #jumbotron {
+        color: white;
+        background: url(https://wallpapers.com/images/featured/m10crf0yq69zqm8s.jpg) no-repeat center center fixed;
+        padding: 10px;
+        background-size: cover;
+        margin-top: 30px;
+        margin-bottom: 150px;
+    }
+
+    #about {
+        color: white;
+        background: url(https://wallpapers.com/images/featured/m10crf0yq69zqm8s.jpg) no-repeat center center fixed;
+        padding: 10px;
+        background-size: cover;
+        margin-bottom: 150px;
+    }
+
+    /* Transaksi */
+    .transaksi {
+        background: url(https://e0.pxfuel.com/wallpapers/889/478/desktop-wallpaper-car-sports-car-neon-backlight-street-u-16-9-background-car-sports-car-neon-aesthetic-car.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        padding: 50px 10px;
+        padding-bottom: 100px;
+        margin-top: -30px;
+        margin-bottom: 0px;
+    }
+    
+}

@@ -25,6 +25,15 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
+    {{-- Font Awesome --}}
+    <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
+
+    {{-- Toast --}}
+    <link rel="stylesheet" href="{{ asset('vendor/toastr/toastr.min.css') }}">
+
+    {{-- Admin LTE --}}
+    <link rel="stylesheet" href="{{ asset('vendor/admin-lte/adminlte.min.css') }}">
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 
@@ -48,6 +57,15 @@
     </div>
       
 
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/admin-lte/adminlte.min.js') }}"></script>
+    <script src="{{ asset('vendor/toastr/toastr.min.js') }}"></script>
+    <script>
+        const successMessage = "{{ session()->get('success') }}";
+            if (successMessage) {
+                toastr.success(successMessage)
+            }
+    </script>
     @stack('scripts')
 </body>
 

@@ -4,7 +4,7 @@
 
             <!-- Facebook -->
             <a
-            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            class="btn btn-link btn-floating btn-lg text-dark m-1 bg-light rounded rounded-circle bg-opacity-25 mx-2"
             href="https://www.facebook.com/octavyan.r"
             role="button"
             target="_blank"
@@ -14,7 +14,7 @@
     
             <!-- Twitter -->
             <a
-            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            class="btn btn-link btn-floating btn-lg text-dark m-1 bg-light rounded rounded-circle bg-opacity-25 mx-2"
             href="https://twitter.com/lectzz"
             role="button"
             target="_blank"
@@ -24,7 +24,7 @@
                 
             <!-- Instagram -->
             <a
-            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            class="btn btn-link btn-floating btn-lg text-dark m-1 bg-light rounded rounded-circle bg-opacity-25 mx-2"
             href="https://www.instagram.com/octalectzz"
             role="button"
             target="_blank"
@@ -34,7 +34,7 @@
     
             <!-- Telegram -->
             <a
-            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            class="btn btn-link btn-floating btn-lg text-dark m-1 bg-light rounded rounded-circle bg-opacity-25 mx-2"
             href="https://t.me/lectzzz"
             role="button"
             target="_blank"
@@ -44,7 +44,7 @@
 
             <!-- Github -->
             <a
-            class="btn btn-link btn-floating btn-lg text-dark m-1"
+            class="btn btn-link btn-floating btn-lg text-dark m-1 bg-light rounded rounded-circle bg-opacity-25 mx-2"
             href="https://github.com/OctaLectzz"
             role="button"
             target="_blank"

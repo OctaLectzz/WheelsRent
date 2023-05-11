@@ -3,8 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Supir;
-use App\Http\Requests\StoreSupirRequest;
-use App\Http\Requests\UpdateSupirRequest;
 use Illuminate\Http\Request;
 
 class SupirController extends Controller
