@@ -9,7 +9,7 @@
             @if ($armada->status == 0)
                 <div class="col-md-6">
                     <div class="card p-3 mb-3">
-                        <img src="{{ asset('img/Car.png') }}" alt="..." class="mb-3">
+                        <img src="{{ asset('img/mobil.png') }}" alt="..." class="mb-3">
                         <div class="caption">
                             <h4 class="fw-bold mb-3">{{ $armada->mobil->type_mobil }}</h4>
                             <p class="my-0 fs-4">Nama Mobil : {{ $armada->mobil->type_mobil }}</p>

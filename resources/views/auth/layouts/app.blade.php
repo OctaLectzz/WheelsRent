@@ -13,6 +13,10 @@
 
     {{-- My CSS --}}
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
+
+    {{-- Font Awesome --}}
+    <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -30,5 +34,9 @@
             @yield('content')
         </main>
     </div>
+
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/submit.js') }}"></script>
+    @stack('scripts')
 </body>
 </html>

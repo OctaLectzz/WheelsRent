@@ -14,6 +14,7 @@
     {{-- My CSS --}}
     <link rel="stylesheet" href="{{ asset('css/layouts.css') }}">
     <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
 
     <!-- Bootstrap CSS -->
     {{-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> --}}
@@ -60,6 +61,8 @@
     <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('vendor/admin-lte/adminlte.min.js') }}"></script>
     <script src="{{ asset('vendor/toastr/toastr.min.js') }}"></script>
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/submit.js') }}"></script>
     <script>
         const successMessage = "{{ session()->get('success') }}";
             if (successMessage) {

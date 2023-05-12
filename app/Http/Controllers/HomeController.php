@@ -28,9 +28,10 @@ class HomeController extends Controller
     public function index()
     {
         $user = User::all();
-        $mobil = Mobil::all();
+        $mobil = Mobil::sum('jumlah');
         $supir = Supir::all();
         $transaksi = Transaksi::all();
-        return view('dashboard.home', compact(['user', 'mobil', 'supir', 'transaksi']));
+        $totalHarga = Transaksi::sum('harga');
+        return view('dashboard.home', compact(['user', 'mobil', 'supir', 'transaksi', 'totalHarga']));
     }
 }

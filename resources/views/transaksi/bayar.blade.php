@@ -83,10 +83,12 @@
                             <select class="form-control @error('supir_id') is-invalid @enderror" name="supir_id" id="supir">
                                 <option value="">-- Pilih Supir --</option>
                                 @forelse ($supirs as $supir)
-                                    @if (old('supir_id') == $supir->id)
-                                        <option value="{{ $supir->id }}" selected>{{ $supir->nama }}</option>
-                                    @else
-                                        <option value="{{ $supir->id }}">{{ $supir->nama }}</option>
+                                    @if ($supir->status == 'Tersedia')
+                                        @if (old('supir_id') == $supir->id)
+                                            <option value="{{ $supir->id }}" selected>{{ $supir->nama }}</option>
+                                        @else
+                                            <option value="{{ $supir->id }}">{{ $supir->nama }}</option>
+                                        @endif
                                     @endif
                                 @empty
                                     <span>Supir sedang tidak ada!</span>
@@ -97,7 +99,7 @@
                             @enderror
                         </div>
 
-                        <button type="submit" class="btn btn-dark mt-3">Submit</button>
+                        <button type="submit" class="btn btn-dark mt-3">Bayar</button>
 
                     </form>
                 </div>

@@ -35,7 +35,7 @@ class MobilController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Mobil $mobil)
+    public function index()
     {
         $mobils = Mobil::all();
         return view('dashboard.mobil.index', compact('mobils'));

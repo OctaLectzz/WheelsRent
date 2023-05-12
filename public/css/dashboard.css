@@ -1,0 +1,44 @@
+.border-transaksi {
+    border-right: 5px solid navy;
+    padding: 20px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 4px black;
+}
+
+.border-pendapatan {
+    border-right: 5px solid green;
+    padding: 20px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 4px black;
+}
+
+.border-mobil {
+    border-right: 5px solid blue;
+    padding: 20px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 4px black;
+}
+
+.border-customer {
+    border-right: 5px solid red;
+    padding: 20px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 4px black;
+}
+
+.border-supir {
+    border-right: 5px solid yellow;
+    padding: 20px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 4px black;
+}

@@ -9,6 +9,7 @@ use App\Http\Controllers\MobilController;
 use App\Http\Controllers\SupirController;
 use App\Http\Controllers\ArmadaController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\TransaksiController;
 
 /*
@@ -117,6 +118,14 @@ Route::prefix('dashboard')->middleware(['auth', 'Admin'])->group(function() {
         Route::get('/', 'index')->name('armada.index');
         Route::get('/armada',  'list')->name('armada.list');
         Route::post('/', 'store')->name('armada.create');
+    });
+
+    // Customer
+    Route::prefix('customer')->controller(CustomerController::class)->group(function() {
+        Route::get('/', 'index')->name('customer.index');
+        Route::get('/customer',  'list')->name('customer.list');
+        Route::put('/{user}', 'update')->name('customer.edit');
+        Route::delete('/{user}', 'destroy')->name('customer.destroy');
     });
 
 });

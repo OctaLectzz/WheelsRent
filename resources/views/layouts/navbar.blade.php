@@ -38,7 +38,7 @@
                     @endif
 
                     @if (Route::has('register'))
-                        <li class="nav-item ms-2">
+                        <li class="nav-item bg-danger text-light rounded-2">
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
@@ -75,11 +75,13 @@
                             </a>
 
                             {{-- Dashboard --}}
-                            <a class="dropdown-item" href="{{ route('home') }}">
-                                {{ __('Dashboard') }}
-                            </a>
+                            @if (auth()->user()->role != 'Member')
+                                <a class="dropdown-item" href="{{ route('home') }}">
+                                    {{ __('Dashboard') }}
+                                </a>
 
-                            <hr class="dropdown-divider">
+                                <hr class="dropdown-divider">
+                            @endif
             
                             {{-- Edit Profile --}}
                             <a class="dropdown-item" href="{{ route('profile') }}">

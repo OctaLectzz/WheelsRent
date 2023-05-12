@@ -84,6 +84,7 @@ class SupirController extends Controller
                 'nama' => 'required|string',
                 'alamat' => 'string',
                 'jenis_kelamin' => 'string',
+                'status' => 'required|string'
             ]
         );
 

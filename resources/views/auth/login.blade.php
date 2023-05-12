@@ -42,7 +42,7 @@
                         </label>
                     </div>
 
-                    <button type="submit" class="d-flex btn btn-dark mt-3">
+                    <button type="submit" class="d-flex btn btn-dark mt-3 w-100 justify-content-center">
                         {{ __('Login') }}
                     </button>
                     

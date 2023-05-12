@@ -101,9 +101,19 @@
                 {{-- Supir --}}
                 <li class="nav-item">
                     <a href="{{ route('supir.index') }}" class="nav-link {{ Request::is('dashboard/supir*') ? 'active' : '' }}">
-                        <i class="nav-icon fa fa-users"></i>
+                        <i class="nav-icon fa fa-address-card"></i>
                         <p>
                             Supir
+                        </p>
+                    </a>
+                </li>
+
+                {{-- Customer --}}
+                <li class="nav-item">
+                    <a href="{{ route('customer.index') }}" class="nav-link {{ Request::is('dashboard/customer*') ? 'active' : '' }}">
+                        <i class="nav-icon fa fa-users"></i>
+                        <p>
+                            Customer
                         </p>
                     </a>
                 </li>

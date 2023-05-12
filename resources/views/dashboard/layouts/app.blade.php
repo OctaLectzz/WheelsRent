@@ -23,6 +23,8 @@
 
         {{-- My CSS --}}
         <link rel="stylesheet" href="{{ asset('css/profile.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/dashboard.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/navbar.css') }}">
 
         <!-- Scripts -->
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -69,6 +71,7 @@
         <script src="{{ asset('vendor/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
         <script src="{{ asset('vendor/toastr/toastr.min.js') }}"></script>
         <script src="{{ asset('js/delete.js') }}"></script>
+        <script src="{{ asset('js/submit.js') }}"></script>
         @stack('scripts')
 
     </body>

@@ -14,7 +14,7 @@ class TransaksiController extends Controller
      */
     public function index()
     {
-        $transaksis = Transaksi::all();
+        $transaksis = Transaksi::latest()->get();
         return view('transaksi.index', compact('transaksis'));
     }
 
@@ -64,7 +64,7 @@ class TransaksiController extends Controller
         return redirect('/transaksi')->with('success', 'Berhasil dipesan, Silahkan lakukan pembayaran!');
     }
 
-    // Belum Bayar
+    // Semua Transaksi
     public function semua()
     {
         return view('dashboard.transaksi.semua');

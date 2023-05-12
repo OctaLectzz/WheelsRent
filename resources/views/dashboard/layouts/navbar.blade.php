@@ -61,11 +61,11 @@
                 <hr class="dropdown-divider">
 
                 {{-- Edit Profile --}}
-                {{-- <a class="dropdown-item" href="{{ route('my.profile.index') }}">
+                <a class="dropdown-item" href="{{ route('dashboard.profile') }}">
                     {{ __('Edit Profile') }}
-                </a> --}}
+                </a>
 
-                {{-- <hr class="dropdown-divider"> --}}
+                <hr class="dropdown-divider">
 
                 {{-- Logout --}}
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
