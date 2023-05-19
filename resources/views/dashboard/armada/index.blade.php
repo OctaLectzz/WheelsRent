@@ -22,6 +22,7 @@
                                 <th>Plat Nomor</th>
                                 <th>Harga</th>
                                 <th class="text-center">Status</th>
+                                <th width="10%" class="text-center">Aksi</th>
                             </tr>
                         </thead>
                     </table>
@@ -33,6 +34,9 @@
 </div>
 
 @include('dashboard.armada.create', ['mobils' => $mobils])
+@foreach($armadas as $armada)
+    @include('dashboard.armada.edit')
+@endforeach
 
 @endsection
 
@@ -55,6 +59,7 @@
                         { data: 'plat_nomor' },
                         { data: 'harga' },
                         { data: 'status' },
+                        { data: 'action', sortable: false },
                     ],
                 });
             });

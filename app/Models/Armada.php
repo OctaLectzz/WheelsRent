@@ -13,6 +13,10 @@ class Armada extends Model
         'id'
     ];
 
+    protected $attributes = [
+        'mobilImages' => ''
+    ];
+
     public function mobil()
     {
         return $this->belongsTo(Mobil::class, 'mobil_id');

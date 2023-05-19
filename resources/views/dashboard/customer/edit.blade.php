@@ -11,6 +11,37 @@
                 </div>
                 
                 <div class="modal-body">
+                    {{-- Images --}}
+                    <label for="images">{{ __('Foto Profile') }}</label>
+                    <div class="input-group">
+                        <div class="card p-2 mb-1 me-2">
+                            @if ($user->images)
+                                <img id="profile" src="{{ asset('storage/images/' . $user->images) }}" class="img-circle elevation-2" width="50" height="50" style="border: 3px white solid">
+                            @else
+                                <img id="profile" src="{{ asset('img/user-profile-default.jpg') }}" class="img-circle elevation-2" alt="User Image" width="50" height="50" style="border: 3px white solid">
+                            @endif
+                        </div>
+                        <div class="mt-1">
+                            <input
+                                name="images"
+                                class="form-control @error('images') is-invalid @enderror"
+                                value="{{ old('images', $user->images) }}"
+                                type="file"
+                                id="formFile"
+                                accept="image/*"
+                                onchange="loadFile(event)"
+                            >
+                            <small for="formFile" class="form-label">
+                                Upload Your Profile Photo 
+                            </small>
+                        </div>
+                    </div>
+                    @error('images')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                    
                     {{-- Nama --}}
                     <div class="form-group">
                         <label for="name">Nama:</label>
@@ -96,3 +127,14 @@
         </div>
     </div>
 </form>
+
+
+
+
+{{-- Preview Image --}}
+<script>
+    let loadFile = function(event) {
+        var images = document.getElementById('profile');
+        images.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>

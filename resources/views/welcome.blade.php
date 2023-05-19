@@ -26,54 +26,39 @@
         <hr>
     
         <div class="row">
-            <div class="col-sm-6 col-md-3">
-                <div class="card p-3">
-                    <img src="{{ asset('img/Car.png') }}" alt="..." class="mb-3">
-                    <div class="caption">
-                        <h4 class="fw-bold mb-3">Avansa</h4>
-                        <p class="my-0">Nama Mobil : Avansa</p>
-                        <p class="my-0">Plat Nomor : AD 3434 BG</p>
-                        <p class="my-0">Bensin : Pertamax</p>
-                        <p><a href="#" class="btn btn-danger float-end" role="button">Pesan</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-3">
-                <div class="card p-3">
-                    <img src="{{ asset('img/Car.png') }}" alt="..." class="mb-3">
-                    <div class="caption">
-                        <h4 class="fw-bold mb-3">Avansa</h4>
-                        <p class="my-0">Nama Mobil : Avansa</p>
-                        <p class="my-0">Plat Nomor : AD 3434 BG</p>
-                        <p class="my-0">Bensin : Pertamax</p>
-                        <p><a href="#" class="btn btn-danger float-end" role="button">Pesan</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-3">
-                <div class="card p-3">
-                    <img src="{{ asset('img/Car.png') }}" alt="..." class="mb-3">
-                    <div class="caption">
-                        <h4 class="fw-bold mb-3">Avansa</h4>
-                        <p class="my-0">Nama Mobil : Avansa</p>
-                        <p class="my-0">Plat Nomor : AD 3434 BG</p>
-                        <p class="my-0">Bensin : Pertamax</p>
-                        <p><a href="#" class="btn btn-danger float-end" role="button">Pesan</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6 col-md-3">
-                <div class="card p-3">
-                    <img src="{{ asset('img/Car.png') }}" alt="..." class="mb-3">
-                    <div class="caption">
-                        <h4 class="fw-bold mb-3">Avansa</h4>
-                        <p class="my-0">Nama Mobil : Avansa</p>
-                        <p class="my-0">Plat Nomor : AD 3434 BG</p>
-                        <p class="my-0">Bensin : Pertamax</p>
-                        <p><a href="#" class="btn btn-danger float-end" role="button">Pesan</a></p>
-                    </div>
-                </div>
-            </div>
+            @php
+                $count = 0;
+            @endphp
+
+            @forelse ($armadas as $armada)
+                @if ($armada->status == 0)
+                    @if ($count < 4)
+                        <div class="col-sm-6 col-md-3">
+                            <div class="card p-3">
+                                @if ($armada->mobilImages)
+                                    <img src="{{ asset('storage/mobilImages/' . $armada->mobilImages) }}" alt="Mobil" class="mb-3">
+                                @else
+                                    <img src="{{ asset('img/mobil.png') }}" alt="Mobil" class="mb-3">
+                                @endif
+                                <div class="caption">
+                                    <h4 class="fw-bold mb-3">{{ $armada->mobil->type_mobil }}</h4>
+                                    <p class="my-0">Nama Mobil : {{ $armada->mobil->type_mobil }}</p>
+                                    <p class="my-0">Plat Nomor : {{ $armada->plat_nomor }}</p>
+                                    <p class="my-0">Bensin : {{ $armada->mobil->bensin }}</p>
+                                    <p class="my-0">Harga : Rp.{{ $armada->harga }} / Hari</p>
+                                    <p><a href="{{ route('transaksi.create', $armada->id) }}" class="btn btn-danger float-end" role="button">Pesan</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                    @php
+                        $count++;
+                    @endphp
+                @endif
+            @empty
+                <h2 class="fw-bold">Mobil yang tersedia sudah habis atau belum tersedia.</h2>
+            @endforelse
+
         </div>
     </section>
     <!-- Daftar Mobil -->

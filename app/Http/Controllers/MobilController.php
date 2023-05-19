@@ -50,7 +50,6 @@ class MobilController extends Controller
         $data = $request->validate(
             [
                 'type_mobil' => 'required|string',
-                'plat_nomor' => 'required|string',
                 'bensin' => 'required|string',
                 'jumlah' => 'required'
             ]
@@ -78,7 +77,6 @@ class MobilController extends Controller
         $data = $request->validate(
             [
                 'type_mobil' => 'required|string',
-                'plat_nomor' => 'required|string',
                 'bensin' => 'required|string',
                 'jumlah' => 'required'
             ]

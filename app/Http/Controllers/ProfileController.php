@@ -19,12 +19,20 @@ class ProfileController extends Controller
         // Validate Request //
         $data = $request->validate(
             [
+                'images' => 'image|file|max:2048',
                 'name' => 'required|string',
                 'tanggal_lahir' => 'date',
-                'jenis_kelamin' => 'string',
-                'alamat' => 'string'
+                'jenis_kelamin' => 'string'
             ]
         );
+        $data['alamat'] = $request->alamat;
+
+        // Request Images //
+        if ($request->hasFile('images')) {
+            $newImage = $request->images->getClientOriginalName();
+            $request->images->storeAs('public/images', $newImage);
+            $data['images'] = $newImage;
+        }
 
         $user = Auth::user();
         $findUser = User::find($user->id);

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('armadas', function (Blueprint $table) {
             $table->id();
+            $table->string('mobilImages');
             $table->unsignedBigInteger('mobil_id');
             $table->foreign('mobil_id')->references('id')->on('mobils');
             $table->string('plat_nomor');

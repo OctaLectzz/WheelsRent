@@ -20,14 +20,6 @@
                     </div>
                 
                     <div class="form-group">
-                        <label for="plat_nomor">Plat Nomor:</label>
-                        <input type="text" class="form-control @error('plat_nomor') is-invalid @enderror" id="plat_nomor" value="{{ old('plat_nomor', $mobil->plat_nomor) }}" name="plat_nomor" required>
-                        @error('plat_nomor')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-                
-                    <div class="form-group">
                         <label for="bensin">Bensin:</label>
                         <input type="text" class="form-control @error('bensin') is-invalid @enderror" id="bensin" value="{{ old('bensin', $mobil->bensin) }}" name="bensin" required>
                         @error('bensin')

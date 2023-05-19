@@ -36,7 +36,7 @@
             <div class="dropdown-menu dropdown-menu-end animate-menu slideIn-menu" aria-labelledby="navbarDropdown">
 
                 {{-- Profile --}}
-                <a href="{{ route('home') }}" class="d-block text-dark text-decoration-none fw-bold fs-6">
+                <a href="{{ route('dashboard.profile') }}" class="d-block text-dark text-decoration-none fw-bold fs-6">
                     <div class="card m-2 pt-2">
                         <div class="justify-content-center d-flex mb-2">
                             <div class="image">

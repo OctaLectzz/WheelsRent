@@ -19,7 +19,6 @@
                             <tr>
                                 <th>No</th>
                                 <th>Type Mobil</th>
-                                <th>Plat Nomor</th>
                                 <th>Bensin</th>
                                 <th>Jumlah</th>
                                 <th width="10%" class="text-center">Aksi</th>
@@ -56,7 +55,6 @@
                     columns: [
                         { data: 'DT_RowIndex', sortable: false, searchable: false },
                         { data: 'type_mobil' },
-                        { data: 'plat_nomor' },
                         { data: 'bensin' },
                         { data: 'jumlah' },
                         { data: 'action', sortable: false },

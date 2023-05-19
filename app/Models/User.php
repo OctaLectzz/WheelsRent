@@ -22,6 +22,7 @@ class User extends Authenticatable
     ];
 
     protected $attributes = [
+        'images' => '',
         'role' => 'Member'
     ];
 

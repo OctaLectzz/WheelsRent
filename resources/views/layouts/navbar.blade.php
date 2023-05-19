@@ -24,7 +24,7 @@
                     <a class="nav-link {{ Request::is('transaksi*') ? 'active bg-light bg-opacity-75 text-danger rounded-3 fw-bold' : '' }}" href="/transaksi">TRANSAKSI</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">CONTACT</a>
+                    <a class="nav-link {{ Request::is('contact*') ? 'active bg-light bg-opacity-75 text-danger rounded-3 fw-bold' : '' }}" href="/contact">CONTACT</a>
                 </li>
             </ul>
 

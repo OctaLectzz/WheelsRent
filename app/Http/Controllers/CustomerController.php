@@ -27,7 +27,7 @@ class CustomerController extends Controller
                 ';
             })
             ->addColumn('images', function ($user) {
-                if (auth()->user()->images) {
+                if ($user->images) {
                     return ' <img src="' . asset('storage/images/' . $user->images) . '" class="img-circle elevation-2" alt="' . $user->images . '" width="50" height="50"  style="border: 3px white solid"> ';
             }
                 else {
@@ -53,13 +53,21 @@ class CustomerController extends Controller
         // Validate Request //
         $data = $request->validate(
             [
+                'images' => 'image|file|max:2048',
                 'name' => 'required|string',
                 'tanggal_lahir' => '',
                 'jenis_kelamin' => 'required',
-                'alamat' => '',
                 'role' => 'required'
             ]
         );
+        $data['alamat'] = $request->alamat;
+
+        // Request Images //
+        if ($request->hasFile('images')) {
+            $newImage = $request->images->getClientOriginalName();
+            $request->images->storeAs('public/images', $newImage);
+            $data['images'] = $newImage;
+        }
 
         $findUser = User::find($user->id);
         $findUser->update($data);

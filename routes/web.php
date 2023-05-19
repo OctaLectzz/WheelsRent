@@ -30,7 +30,8 @@ use App\Http\Controllers\TransaksiController;
 
 // Halaman Utama
 Route::get('/', function () {
-    return view('welcome');
+    $armadas = Armada::latest()->get();
+    return view('welcome', compact('armadas'));
 })->name('welcome');
 
 // Mobil
@@ -57,6 +58,11 @@ Route::middleware(['auth', 'verified'])->group(function() {
         $user = auth()->user();
         return view('profile', compact('user'));
     })->name('profile');
+
+    // Contact
+    Route::get('/contact', function (){
+        return view('contact');
+    })->name('contact');
 
 });
 
@@ -118,6 +124,8 @@ Route::prefix('dashboard')->middleware(['auth', 'Admin'])->group(function() {
         Route::get('/', 'index')->name('armada.index');
         Route::get('/armada',  'list')->name('armada.list');
         Route::post('/', 'store')->name('armada.create');
+        Route::put('/{armada}', 'update')->name('armada.edit');
+        Route::delete('/{armada}', 'destroy')->name('armada.destroy');
     });
 
     // Customer

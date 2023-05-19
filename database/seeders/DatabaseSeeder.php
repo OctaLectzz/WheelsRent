@@ -19,8 +19,12 @@ class DatabaseSeeder extends Seeder
         // User
         User::factory(20)->create();
         User::factory()->create([
+            'images' => 'Benedetta Profile.jpg',
             'name' => 'OctaLectzz',
             'email' => 'admin@test.com',
+            'tanggal_lahir' => '2006-10-04',
+            'jenis_kelamin' => 'Laki-Laki',
+            'alamat' => 'Jl.Seta No.32, Larangan RT04/RW04 Gayam Sukoharjo, Jawa Tengah, Indonesia, Bumi, Glaxy Bima Sakti',
             'password' => bcrypt('password'),
             'role' => 'Admin'
         ]);

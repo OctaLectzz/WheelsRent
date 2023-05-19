@@ -10,6 +10,31 @@
                 </div>
                 
                 <div class="modal-body">
+
+                    {{-- mobilImages --}}
+                    <label for="mobilImages">{{ __('Foto Mobil :') }}</label>
+                    <div class="input-group">
+                        <div class="card p-2 mb-1 me-2">
+                            <img id="mobil" src="{{ asset('img/Car.png') }}" class="img-circle elevation-2" alt="mobil image" width="50" height="50" style="border: 3px white solid">
+                        </div>
+                        <div class="mt-1">
+                            <input
+                                name="mobilImages"
+                                class="form-control @error('mobilImages') is-invalid @enderror"
+                                value="{{ old('mobilImages') }}"
+                                type="file"
+                                id="formFile"
+                                accept="image/*"
+                                onchange="loadFile(event)"
+                            >
+                        </div>
+                    </div>
+                    @error('mobilImages')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+
                     {{-- Type Mobil --}}
                     <div class="form-group">
                         <label for="mobil">Mobil :</label>
@@ -31,7 +56,7 @@
 
                     {{-- Plat Nomor --}}
                     <div class="form-group">
-                        <label for="plat_nomor">Plat Nomor:</label>
+                        <label for="plat_nomor">Plat Nomor :</label>
                         <input type="text" class="form-control @error('plat_nomor') is-invalid @enderror" id="plat_nomor" name="plat_nomor" value="{{ old('plat_nomor') }}" required>
                         @error('plat_nomor')
                             <div class="invalid-feedback">{{ $message }}</div>
@@ -50,6 +75,15 @@
                             <label class="btn btn-outline-danger" for="status2">Disewa</label>
                         </div> 
                     </div>
+
+                    {{-- Harga --}}
+                    <div class="form-group">
+                        <label for="harga">Harga :</label>
+                        <input type="number" class="form-control @error('harga') is-invalid @enderror" id="harga" name="harga" value="{{ old('harga') }}" required>
+                        @error('harga')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror
+                    </div>
                 </div>
 
                 <div class="modal-footer">
@@ -61,3 +95,14 @@
         </div>
     </div>
 </form>
+
+
+
+
+{{-- Preview Image --}}
+<script>
+    let loadFile = function(event) {
+        var images = document.getElementById('mobil');
+        images.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>

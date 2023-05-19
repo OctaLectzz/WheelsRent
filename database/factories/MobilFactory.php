@@ -18,7 +18,6 @@ class MobilFactory extends Factory
     {
         return [
             'type_mobil' => fake()->word(),
-            'plat_nomor' => mt_rand(1000, 3000),
             'bensin' => 'pertamax',
             'jumlah' => mt_rand(1, 10),
         ];

@@ -12,6 +12,41 @@
 
           <div class="modal-body">
 
+            {{-- Images --}}
+            <div class="row mb-3">
+                <label for="images" class="col-md-4 col-form-label text-md-end">{{ __('Foto Profile') }}</label>
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <div class="card p-2 mb-2 mx-3">
+                            @if (auth()->user()->images)
+                                <img id="profile" src="{{ asset('storage/images/' . auth()->user()->images) }}" class="img-circle elevation-2" width="50" height="50" style="border: 3px white solid">
+                            @else
+                                <img id="profile" src="{{ asset('img/user-profile-default.jpg') }}" class="img-circle elevation-2" alt="User Image" width="50" height="50" style="border: 3px white solid">
+                            @endif
+                        </div>
+                        <div class="mt-2">
+                            <input
+                                name="images"
+                                class="form-control @error('images') is-invalid @enderror"
+                                value="{{ old('images', auth()->user()->images) }}"
+                                type="file"
+                                id="formFile"
+                                accept="image/*"
+                                onchange="loadFile(event)"
+                            >
+                            <small for="formFile" class="form-label">
+                                Upload Your Profile Photo 
+                            </small>
+                        </div>
+                    </div>
+                    @error('images')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                    @enderror
+                </div>
+            </div>
+
             {{-- Name --}}
             <div class="row mb-3">
                 <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
@@ -103,3 +138,14 @@
       </div>
     </div>
 </div>
+
+
+
+
+{{-- Preview Image --}}
+<script>
+    let loadFile = function(event) {
+        var images = document.getElementById('profile');
+        images.src = URL.createObjectURL(event.target.files[0]);
+    }
+</script>
